@@ -54,15 +54,15 @@ const Home: React.FC = () => {
       {/* Owner Introduction & Story Section */}
       <section className="py-32">
         <div className="container mx-auto px-6 md:px-12">
-          {/* Portrait Image */}
+          {/* Portrait Image - Updated aspect ratio to prevent cropping */}
           <div className="max-w-4xl mx-auto mb-24">
             <div className="relative group">
               <div className="absolute -inset-6 bg-slate-50 rounded-[5rem] -z-10 transition-transform duration-1000 group-hover:scale-105"></div>
-              <div className="aspect-[16/9] md:aspect-[21/9] rounded-[4rem] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white">
+              <div className="aspect-square md:aspect-[4/3] rounded-[4rem] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white">
                 <img 
                   src="https://github.com/jaepanman/jec-website/blob/main/JEC-jesse.png?raw=true" 
                   alt="Jesse Ehmann - Owner" 
-                  className="w-full h-full object-cover object-center transition-transform duration-[3s] group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-[3s] group-hover:scale-105"
                 />
                 <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
                   <div className="bg-white/90 backdrop-blur-2xl p-6 md:p-8 rounded-[2.5rem] shadow-2xl border border-white/50">
