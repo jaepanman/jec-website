@@ -9,13 +9,10 @@ import {
 } from 'lucide-react';
 
 /**
- * Safely retrieve the Google Sheet URL from environment variables.
- * In Vite (standard for Vercel React apps), it's import.meta.env.VITE_...
- * In some other environments or during SSR, it might be process.env.
+ * Access environment variables in a Vite-friendly way.
+ * Using 'import.meta' directly prevents TS from complaining about missing 'process' globals.
  */
-const GOOGLE_SHEET_URL = 
-  (import.meta as any).env?.VITE_GOOGLE_SHEET_URL || 
-  (typeof process !== 'undefined' ? process.env?.VITE_GOOGLE_SHEET_URL : undefined);
+const GOOGLE_SHEET_URL = (import.meta as any).env?.VITE_GOOGLE_SHEET_URL;
 
 const GRADES = [
   '年少・年中・年長',

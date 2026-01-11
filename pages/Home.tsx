@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-slate-50 py-20">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-50 py-24 md:py-32">
         <div className="absolute inset-0 z-0">
            {/* Image of children playing outside */}
            <img 
@@ -24,12 +24,12 @@ const Home: React.FC = () => {
               <span className="w-1.5 h-1.5 bg-jec-green rounded-full animate-pulse"></span>
               <span className="text-[10px] font-black uppercase tracking-[0.4em]">Kuki & Koshigaya Japan</span>
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-black mb-6 leading-[0.95] tracking-tighter text-slate-900 drop-shadow-sm">
+            <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-black mb-8 leading-[0.9] tracking-tighter text-slate-900 drop-shadow-sm">
               英語で<br />
               <span className="text-jec-green">ミライ</span>を<br />
               <span className="text-jec-orange">広げよう。</span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl mb-10 text-slate-600 max-w-xl font-medium leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl mb-12 text-slate-600 max-w-xl font-medium leading-relaxed">
               JEC英語教室は、自ら「考え、発信する」力を育む<br className="hidden sm:block" />少人数制のクリエイティブ英会話です。
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
