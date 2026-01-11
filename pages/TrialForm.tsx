@@ -10,7 +10,6 @@ import {
 
 /**
  * Access environment variables in a Vite-friendly way.
- * Using 'import.meta' directly prevents TS from complaining about missing 'process' globals.
  */
 const GOOGLE_SHEET_URL = (import.meta as any).env?.VITE_GOOGLE_SHEET_URL;
 
@@ -97,6 +96,10 @@ const TrialForm: React.FC = () => {
     return formData.locationId === 'koshigaya' && day !== 'Thursday';
   };
 
+  const dayLabelMap: {[key: string]: string} = {
+    'Monday': '月', 'Tuesday': '火', 'Wednesday': '水', 'Thursday': '木', 'Friday': '金', 'Saturday': '土'
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.availabilities.length < 2) {
@@ -112,12 +115,32 @@ const TrialForm: React.FC = () => {
 
     setIsSubmitting(true);
 
+    // Format availabilities for the spreadsheet
+    const formattedAvailabilities = formData.availabilities
+      .map(a => `${dayLabelMap[a.day]} ${a.time}`)
+      .join(', ');
+
+    // Explicitly construct payload to avoid object-serialization issues in GAS
+    const payload = {
+      parentName: formData.parentName,
+      studentName: formData.isAdult ? '本人' : (formData.studentName || '本人'),
+      email: formData.email,
+      age: formData.age || 'N/A',
+      grade: formData.grade || 'N/A',
+      experience: formData.experience || 'なし',
+      interests: formData.interests || '特になし',
+      lessonType: formData.lessonType,
+      locationName: LOCATIONS.find(l => l.id === formData.locationId)?.name || formData.locationId,
+      availabilities: formattedAvailabilities,
+      submittedAt: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
+    };
+
     try {
       await fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       setIsSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -138,10 +161,6 @@ const TrialForm: React.FC = () => {
     }));
   };
 
-  const dayLabelMap: {[key: string]: string} = {
-    'Monday': '月', 'Tuesday': '火', 'Wednesday': '水', 'Thursday': '木', 'Friday': '金', 'Saturday': '土'
-  };
-
   if (isSubmitted) {
     return (
       <div className="py-32 container mx-auto px-4 md:px-8 max-w-2xl text-center">
@@ -154,7 +173,7 @@ const TrialForm: React.FC = () => {
           <h1 className="text-4xl font-bold mb-6 text-slate-800">お申し込み完了！</h1>
           <p className="text-lg text-slate-600 mb-10 leading-relaxed">
             体験レッスンのリクエストを送信しました。<br />
-            <span className="font-bold text-slate-800">{formData.email}</span> 宛てに、担当スタッフより確定の日時をご案内いたします。
+            <span className="font-bold text-slate-800">{formData.email}</span> 宛てに、担当スタッフより詳細確認のメールをお送りします。しばらくお待ちください。
           </p>
           <a href="/" className="inline-block bg-slate-900 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition-all active:scale-95">
             トップページへ戻る
