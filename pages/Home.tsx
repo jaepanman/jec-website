@@ -96,7 +96,7 @@ const Home: React.FC = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-6">
                   <div className="bg-slate-50 p-12 rounded-[3rem] border border-slate-100 flex flex-col justify-center">
-                    <p className="text-slate-900 font-black text-5xl mb-2 tracking-tighter">14+</p>
+                    <p className="text-slate-900 font-black text-5xl mb-2 tracking-tighter">15+</p>
                     <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Years in Japan</p>
                   </div>
                   <div className="bg-slate-50 p-12 rounded-[3rem] border border-slate-100 flex flex-col justify-center">
