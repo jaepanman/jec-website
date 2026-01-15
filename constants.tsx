@@ -36,7 +36,7 @@ export const COURSES: Course[] = [
     nameJp: 'スチーム・パワード',
     description: '科学、技術、工学、芸術、数学を英語で学ぶ、新しいスタイルの探求型クラスです。',
     target: '幼児〜中学生',
-    duration: '60分/90分',
+    duration: '60分',
     colorClass: 'border-jec-green'
   },
   {
