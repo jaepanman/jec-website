@@ -38,6 +38,7 @@ export interface TrialFormData {
   age?: string;
   grade?: string;
   experience?: string;
+  eikenCertification?: string;
   interests: string;
   lessonType: LessonType;
   locationId: string;
