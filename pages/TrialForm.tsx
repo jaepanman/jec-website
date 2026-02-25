@@ -35,6 +35,7 @@ const TrialForm: React.FC = () => {
     age: '',
     grade: '',
     experience: '',
+    eikenCertification: '',
     interests: '',
     lessonType: LessonType.EITHER,
     locationId: 'kuki',
@@ -125,6 +126,7 @@ const TrialForm: React.FC = () => {
       age: formData.age || 'N/A',
       grade: formData.grade || 'N/A',
       experience: formData.experience || 'なし',
+      eikenCertification: formData.eikenCertification || 'なし',
       interests: formData.interests || '特になし',
       lessonType: formData.lessonType,
       locationName: locationName,
@@ -256,8 +258,84 @@ const TrialForm: React.FC = () => {
                     </select>
                   </div>
                 </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <label className="flex items-center text-sm font-bold text-slate-700 mb-3"><History className="w-4 h-4 mr-2 text-jec-green" />英語学習経験</label>
+                    <select value={formData.experience} onChange={(e) => setFormData({...formData, experience: e.target.value})} className="w-full px-5 py-4 rounded-2xl border border-slate-200 focus:border-jec-orange outline-none text-lg font-medium bg-white appearance-none cursor-pointer">
+                      <option value="">選択してください</option>
+                      {EXPERIENCE_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="flex items-center text-sm font-bold text-slate-700 mb-3"><CheckCircle className="w-4 h-4 mr-2 text-jec-orange" />英検の取得状況</label>
+                    <input type="text" value={formData.eikenCertification} onChange={(e) => setFormData({...formData, eikenCertification: e.target.value})} className="w-full px-5 py-4 rounded-2xl border border-slate-200 focus:border-jec-orange outline-none text-lg font-medium" placeholder="例：5級、なし" />
+                  </div>
+                </div>
               </div>
             )}
+
+            {/* Adult Info Experience/Eiken */}
+            {formData.isAdult && (
+              <div className="space-y-8">
+                <h2 className="text-2xl font-bold text-slate-800 flex items-center border-l-4 border-jec-yellow pl-4">学習状況</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <label className="flex items-center text-sm font-bold text-slate-700 mb-3"><History className="w-4 h-4 mr-2 text-jec-green" />英語学習経験</label>
+                    <select value={formData.experience} onChange={(e) => setFormData({...formData, experience: e.target.value})} className="w-full px-5 py-4 rounded-2xl border border-slate-200 focus:border-jec-orange outline-none text-lg font-medium bg-white appearance-none cursor-pointer">
+                      <option value="">選択してください</option>
+                      {EXPERIENCE_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="flex items-center text-sm font-bold text-slate-700 mb-3"><CheckCircle className="w-4 h-4 mr-2 text-jec-orange" />英検の取得状況</label>
+                    <input type="text" value={formData.eikenCertification} onChange={(e) => setFormData({...formData, eikenCertification: e.target.value})} className="w-full px-5 py-4 rounded-2xl border border-slate-200 focus:border-jec-orange outline-none text-lg font-medium" placeholder="例：準2級、なし" />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Interests & Content */}
+            <div className="space-y-8">
+              <h2 className="text-2xl font-bold text-slate-800 flex items-center border-l-4 border-jec-orange pl-4">ご興味のある内容</h2>
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-3">興味のあるコース・内容（複数選択可）</label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => {
+                          const currentInterests = formData.interests ? formData.interests.split('、') : [];
+                          if (currentInterests.includes(s)) {
+                            setFormData({...formData, interests: currentInterests.filter(i => i !== s).join('、')});
+                          } else {
+                            setFormData({...formData, interests: [...currentInterests, s].join('、')});
+                          }
+                        }}
+                        className={`px-4 py-3 rounded-xl text-sm font-bold border-2 transition-all ${
+                          formData.interests.includes(s)
+                            ? 'bg-jec-orange border-jec-orange text-white'
+                            : 'bg-white border-slate-100 text-slate-600 hover:border-slate-200'
+                        }`}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="flex items-center text-sm font-bold text-slate-700 mb-3"><MessageSquare className="w-4 h-4 mr-2 text-jec-green" />その他ご要望・ご質問</label>
+                  <textarea 
+                    value={formData.interests} 
+                    onChange={(e) => setFormData({...formData, interests: e.target.value})} 
+                    className="w-full px-5 py-4 rounded-2xl border border-slate-200 focus:border-jec-orange outline-none text-lg font-medium min-h-[120px]" 
+                    placeholder="具体的に学びたいことや、気になることがあればご記入ください。"
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* Location */}
             <div className="space-y-8">
