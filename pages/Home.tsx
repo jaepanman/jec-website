@@ -60,7 +60,7 @@ const Home: React.FC = () => {
               <div className="absolute -inset-6 bg-slate-50 rounded-[5rem] -z-10 transition-transform duration-1000 group-hover:scale-105"></div>
               <div className="aspect-square md:aspect-[4/3] rounded-[4rem] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white">
                 <img 
-                  src="https://github.com/jaepanman/jec-website/blob/main/JEC-jesse.png?raw=true" 
+                  src="https://i.ibb.co/20wFmk0W/JEC-jesse-2.png" 
                   alt="Jesse Ehmann - Owner" 
                   className="w-full h-full object-cover object-top transition-transform duration-[3s] group-hover:scale-105"
                 />
