@@ -71,7 +71,7 @@ const MemberApps: React.FC = () => {
     },
     {
       title: 'JEC Flex',
-      description: '文法とリスニングを柔軟に鍛えるスマート学習ツール。レッスンと連動したクリエイティブな演習が充実。',
+      description: '便利なチケット制！スケジュールに合わせて、いつでも気軽に英会話！JEC Flexは、忙しい保護者のみなさまのためのレッスン予約アプリです。',
       url: 'https://jec-flex.vercel.app/',
       image: flexImg,
       colorClass: 'from-emerald-500 to-teal-500'
