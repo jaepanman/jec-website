@@ -9,10 +9,10 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-50 py-24 md:py-32">
         <div className="absolute inset-0 z-0">
-           {/* Image of children playing outside */}
+           {/* Updated Hero Image */}
            <img 
-             src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&q=80&w=2000" 
-             alt="Children playing outside" 
+             src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=2000" 
+             alt="Group of students on green grass field" 
              className="w-full h-full object-cover opacity-25"
            />
            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
@@ -54,13 +54,13 @@ const Home: React.FC = () => {
       {/* Owner Introduction & Story Section */}
       <section className="py-32">
         <div className="container mx-auto px-6 md:px-12">
-          {/* Portrait Image - Updated aspect ratio to prevent cropping */}
+          {/* Portrait Image - Aspect ratio and object-top positioning to prevent cropping */}
           <div className="max-w-4xl mx-auto mb-24">
             <div className="relative group">
               <div className="absolute -inset-6 bg-slate-50 rounded-[5rem] -z-10 transition-transform duration-1000 group-hover:scale-105"></div>
               <div className="aspect-square md:aspect-[4/3] rounded-[4rem] overflow-hidden shadow-2xl relative bg-slate-100 border-4 border-white">
                 <img 
-                  src="https://i.ibb.co/20wFmk0W/JEC-jesse-2.png" 
+                  src="https://github.com/jaepanman/jec-website/blob/main/JEC-jesse.png?raw=true" 
                   alt="Jesse Ehmann - Owner" 
                   className="w-full h-full object-cover object-top transition-transform duration-[3s] group-hover:scale-105"
                 />
@@ -96,7 +96,7 @@ const Home: React.FC = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-6">
                   <div className="bg-slate-50 p-12 rounded-[3rem] border border-slate-100 flex flex-col justify-center">
-                    <p className="text-slate-900 font-black text-5xl mb-2 tracking-tighter">15+</p>
+                    <p className="text-slate-900 font-black text-5xl mb-2 tracking-tighter">14+</p>
                     <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Years in Japan</p>
                   </div>
                   <div className="bg-slate-50 p-12 rounded-[3rem] border border-slate-100 flex flex-col justify-center">
