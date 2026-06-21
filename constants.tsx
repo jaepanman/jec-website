@@ -72,7 +72,7 @@ export const LOCATIONS: Location[] = [
   {
     id: 'koshigaya',
     name: '越谷教室 (Koshigaya School)',
-    address: '埼玉県越谷市（せんげん台駅近く）',
+    address: '埼玉県越谷市（越谷駅近く）',
     phone: '070-2158-4162',
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103517.954625295!2d139.78917!3d35.890696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601890064f266205%3A0x4a938c6427d6e676!2sKoshigaya%2C%20Saitama!5e0!3m2!1sen!2sjp!4v1716100000001!5m2!1sen!2sjp',
     externalMapUrl: 'https://maps.app.goo.gl/4hejNJcMRCJpo9Ym8',
