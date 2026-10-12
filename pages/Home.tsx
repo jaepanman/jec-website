@@ -1,7 +1,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, MessageCircle, HeartHandshake, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, MessageCircle, HeartHandshake, Users, Sparkles, Smartphone, CheckCircle2 } from 'lucide-react';
+import storybridgeImg from '../assets/storybridge.png';
+import eibunBuilderImg from '../assets/eibun-builder.png';
+import icaneikenImg from '../assets/icaneiken.png';
 
 const Home: React.FC = () => {
   return (
@@ -115,8 +118,133 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* EdTech & Proprietary Learning Apps Section */}
+      <section className="py-32 bg-slate-50 border-t border-slate-100 relative overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            <div className="inline-flex items-center space-x-2 bg-slate-900 text-white px-5 py-2 rounded-full mb-6 shadow-sm">
+              <Smartphone className="w-4 h-4 text-jec-green" />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em]">EdTech × 英語教育</span>
+            </div>
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] mb-8">
+              教室の外でも自然に学びが続く、<br />
+              独自の学習アプリ環境。
+            </h3>
+            <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">
+              JEC英語教室では、週1回のレッスンにとどまらず、<span className="text-slate-900 font-bold underline decoration-jec-orange decoration-2">「ご家庭でも楽しく英語に触れ続けられる自学自習の環境」</span>を大切にしています。<br className="hidden md:block" />
+              オーナーのジェシーは長年の指導経験に加え、自ら教育アプリを設計・開発するEdTechエンジニアでもあります。年齢や目標に合わせて最適化された専用アプリを生徒へ提供しています。
+            </p>
+          </div>
+
+          {/* 3 App Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+            {/* Card 1: JEC Storybridge */}
+            <div className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-20 h-20 rounded-2xl bg-amber-50/80 border border-amber-100 p-2.5 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src={storybridgeImg} 
+                      alt="JEC Storybridge Emblem" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-xs font-black px-3.5 py-1.5 rounded-full bg-jec-yellow/15 text-amber-900 tracking-wide">
+                    幼児・小学生
+                  </span>
+                </div>
+                <p className="text-jec-orange font-bold text-xs uppercase tracking-widest mb-1">Young Learners</p>
+                <h4 className="text-2xl font-black text-slate-900 tracking-tight mb-2">JEC Storybridge</h4>
+                <p className="text-slate-400 font-bold text-xs mb-5">絵本ストーリーで学ぶ英検＆語彙</p>
+                <p className="text-slate-600 font-medium text-base leading-relaxed mb-6">
+                  かわいいイラストストーリーを読み進めながら、英検頻出の重要単語や基本文法を直感的にインプット。物語の世界を楽しみながら、自然と語彙力が身につきます。
+                </p>
+              </div>
+              <div className="pt-6 border-t border-slate-100 flex flex-wrap gap-2 text-xs font-bold text-slate-500">
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#絵本ストーリー</span>
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#英検基礎語彙</span>
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#直感インプット</span>
+              </div>
+            </div>
+
+            {/* Card 2: JEC 英文ビルダー */}
+            <div className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-20 h-20 rounded-2xl bg-emerald-50/80 border border-emerald-100 p-2.5 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src={eibunBuilderImg} 
+                      alt="JEC英文ビルダー logo" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-xs font-black px-3.5 py-1.5 rounded-full bg-jec-green/20 text-emerald-900 tracking-wide">
+                    中学生
+                  </span>
+                </div>
+                <p className="text-jec-green font-bold text-xs uppercase tracking-widest mb-1">Junior High School</p>
+                <h4 className="text-2xl font-black text-slate-900 tracking-tight mb-2">JEC 英文ビルダー</h4>
+                <p className="text-slate-400 font-bold text-xs mb-5">英文構造・語順マスターアプリ</p>
+                <p className="text-slate-600 font-medium text-base leading-relaxed mb-6">
+                  つまずきやすい英語の語順や文法構造を、視覚的・体感的に組み立てるアプリ。感覚だけに頼らず、英文の「骨組み」を正しく見抜く読解力と作文力を養います。
+                </p>
+              </div>
+              <div className="pt-6 border-t border-slate-100 flex flex-wrap gap-2 text-xs font-bold text-slate-500">
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#語順トレーニング</span>
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#文法構造の視覚化</span>
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#長文読解の土台</span>
+              </div>
+            </div>
+
+            {/* Card 3: I Can EIKEN */}
+            <div className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-20 h-20 rounded-2xl bg-orange-50/80 border border-orange-100 p-2.5 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src={icaneikenImg} 
+                      alt="I Can EIKEN logo" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-xs font-black px-3.5 py-1.5 rounded-full bg-jec-orange/15 text-orange-900 tracking-wide">
+                    全学年・英検受験生
+                  </span>
+                </div>
+                <p className="text-jec-orange font-bold text-xs uppercase tracking-widest mb-1">Eiken Prep</p>
+                <h4 className="text-2xl font-black text-slate-900 tracking-tight mb-2">I Can EIKEN</h4>
+                <p className="text-slate-400 font-bold text-xs mb-5">実践的 英検総合対策アプリ</p>
+                <p className="text-slate-600 font-medium text-base leading-relaxed mb-6">
+                  合格に必要な語彙・リスニング・実践問題を効率的に反復トレーニングできるアプリ。日々のスキマ時間を活用して、着実に合格レベルへと引き上げます。
+                </p>
+              </div>
+              <div className="pt-6 border-t border-slate-100 flex flex-wrap gap-2 text-xs font-bold text-slate-500">
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#合格直結演習</span>
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#リスニング強化</span>
+                <span className="bg-slate-50 px-3 py-1 rounded-lg">#スキマ時間学習</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Highlight Callout */}
+          <div className="max-w-4xl mx-auto bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200/80 shadow-xl flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+            <div className="w-16 h-16 rounded-2xl bg-jec-green/20 flex items-center justify-center flex-shrink-0">
+              <Sparkles className="w-8 h-8 text-emerald-600" />
+            </div>
+            <div className="flex-grow text-center sm:text-left">
+              <h4 className="font-black text-xl md:text-2xl text-slate-900 mb-2">
+                「対面レッスン」×「オリジナルアプリ」のハイブリッド学習
+              </h4>
+              <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
+                教室での情熱的な対面レッスンで会話と表現を磨き、手元の自作アプリでご家庭のスキマ時間を活かして反復定着。この両輪が揃うことで、週1回の通学でも圧倒的な学習継続力と自信を育んでいます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Grid */}
-      <section className="py-32 bg-slate-50">
+      <section className="py-32 bg-white">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
              {[
